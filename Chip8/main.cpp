@@ -7,9 +7,6 @@
 const int SCREEN_FPS = 500;
 const int SCREEN_TICKS_PER_FRAME = 1000 / SCREEN_FPS;
 
-//typedef unsigned __int8 u8;
-//u8 screenData[SCREEN_HEIGHT][SCREEN_WIDTH][3];
-
 ChipRenderer chipRenderer;
 Chip8 chip8;
 
@@ -72,24 +69,10 @@ int main(int argc, char *argv[])
 void loop()
 {
 	chip8.emulateCycle();
-
 	if (chip8.drawFlag)
 	{
 		//chip8.debugRender();
-
-
 		// Processed frame
 		chip8.drawFlag = false;
 	}
-}
-
-void updateTexture(const Chip8& c8)
-{
-	// Update pixels
-	// for (int y = 0; y < 32; ++y)
-	//   for (int x = 0; x < 64; ++x)
-	// if (c8.gfx[(y * 64) + x] == 0)
-	//     screenData[y][x][0] = screenData[y][x][1] = screenData[y][x][2] = 0;    // Disabled
-	// else
-	//    screenData[y][x][0] = screenData[y][x][1] = screenData[y][x][2] = 255;  // Enabled
 }
